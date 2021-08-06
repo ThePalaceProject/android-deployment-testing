@@ -1,0 +1,3 @@
+rootProject.name = 'simplified'
+
+include ':org.thepalaceproject.deploytest.app'

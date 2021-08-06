@@ -1,0 +1,97 @@
+logger.info("Configuring ${project} (${POM_PACKAGING}) as Android application project")
+
+def projectNameSuffix = project.name.split("-").last()
+
+// Required for generating signed release builds suitable for
+// publishing in the app store
+//
+def palaceKeyStore =
+  file("$rootDir/release.jks")
+def palaceKeyAlias =
+  project.findProperty('org.thepalaceproject.keyAlias')
+def palaceKeyPassword =
+  project.findProperty('org.thepalaceproject.keyPassword')
+def palaceStorePassword =
+  project.findProperty('org.thepalaceproject.storePassword')
+
+/**
+ * This task is run before a release build is assembled.
+ */
+task preReleaseCheck(group: 'NYPL') {
+  description =
+    'Verify signing information is present before generating a release build.'
+
+  doLast {
+    if (!palaceKeyStore.exists()) {
+      throw new GradleException(
+        "Keystore file '${palaceKeyStore}' must exist to sign release builds")
+    }
+    if (!palaceKeyAlias) {
+      throw new GradleException(
+        "'org.thepalaceproject.keyAlias' must be defined to sign release builds")
+    }
+    if (!palaceKeyPassword) {
+      throw new GradleException(
+        "'org.thepalaceproject.keyPassword' must be defined to sign release builds")
+    }
+    if (!palaceStorePassword) {
+      throw new GradleException(
+        "'org.thepalaceproject.storePassword' must be defined to sign release builds")
+    }
+  }
+}
+
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
+android {
+  compileSdkVersion android_compile_sdk_version
+  buildToolsVersion android_build_tools_version
+
+  defaultConfig {
+    minSdkVersion android_min_sdk_version
+    targetSdkVersion android_target_sdk_version
+  }
+  compileOptions {
+    encoding 'UTF-8'
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+  signingConfigs {
+    release {
+      keyAlias palaceKeyAlias
+      keyPassword palaceKeyPassword
+      storeFile file("$rootDir/release.jks")
+      storePassword palaceStorePassword
+    }
+  }
+  buildTypes {
+    debug {
+      ndk { abiFilters 'x86', 'arm64-v8a', 'armeabi-v7a' }
+      versionNameSuffix '-debug'
+    }
+    release {
+      ndk { abiFilters 'arm64-v8a', 'armeabi-v7a' }
+      signingConfig signingConfigs.release
+    }
+  }
+  lintOptions {
+    checkReleaseBuilds false
+  }
+  applicationVariants.all { variant ->
+    if (variant.buildType.name == 'release') {
+      def preBuildTask =
+        tasks.findByName("pre${variant.name.capitalize()}Build")
+      if (preBuildTask) {
+        preBuildTask.dependsOn preReleaseCheck
+      }
+    }
+  }
+}
+
+afterEvaluate {
+  assemble.dependsOn(bundle)
+}

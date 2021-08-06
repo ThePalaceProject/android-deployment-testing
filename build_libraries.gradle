@@ -1,0 +1,20 @@
+ext.kotlin_version = '1.4.20'
+ext.android_build_tools_version = '29.0.3'
+ext.android_compile_sdk_version = 29
+ext.android_target_sdk_version = 29
+ext.android_min_sdk_version = 21
+
+// Dependency versions
+
+ext.versions = [
+  androidx_appcompat: '1.2.0',
+  slf4j             : '1.7.25',
+]
+
+// Dependency declarations
+
+ext.libraries = [
+  androidx_appcompat: "androidx.appcompat:appcompat:${versions.androidx_appcompat}",
+  kotlin_stdlib     : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
+  slf4j             : "org.slf4j:slf4j-api:${versions.slf4j}",
+]
