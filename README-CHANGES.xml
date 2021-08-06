@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<c:changelog project="org.thepalaceproject.deploytest" xmlns:c="urn:com.io7m.changelog:4.0">
+  <c:releases>
+    <c:release date="2021-08-06T16:39:37+00:00" is-open="true" ticket-system="org.thepalaceproject.tickets" version="0.0.1">
+      <c:changes>
+        <c:change date="2021-08-06T16:39:37+00:00" summary="Changed something"/>
+      </c:changes>
+    </c:release>
+  </c:releases>
+  <c:ticket-systems>
+    <c:ticket-system default="true" id="org.thepalaceproject.tickets" url="https://www.example.org/tickets/"/>
+  </c:ticket-systems>
+</c:changelog>
