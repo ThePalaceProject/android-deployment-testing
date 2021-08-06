@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "716454087792",
+    "project_id": "the-palace-project",
+    "storage_bucket": "the-palace-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716454087792:android:c699f3f8a809d39c84f8b5",
+        "android_client_info": {
+          "package_name": "org.thepalaceproject.deployment_testing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716454087792-cup7vg383rvmrn5bdrjjeervbmar1d9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyE773_42l57taEO7_SgclCMkoQrMxjWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716454087792-cup7vg383rvmrn5bdrjjeervbmar1d9g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "716454087792-fktef2u79u7uqk14alkgocn1f8tfvtqv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.thepalaceproject.palace"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
