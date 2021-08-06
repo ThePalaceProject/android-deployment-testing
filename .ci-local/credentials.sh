@@ -15,15 +15,6 @@ info()
   echo "credentials-local.sh: info: $1" 1>&2
 }
 
-if [ -z "${CI_AWS_ACCESS_ID}" ]
-then
-  fatal "CI_AWS_ACCESS_ID is not defined"
-fi
-if [ -z "${CI_AWS_SECRET_KEY}" ]
-then
-  fatal "CI_AWS_SECRET_KEY is not defined"
-fi
-
 #------------------------------------------------------------------------
 # Copy credentials into place.
 #
