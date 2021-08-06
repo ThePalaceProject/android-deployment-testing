@@ -127,6 +127,11 @@ subprojects { project ->
  */
 task verifySemanticVersioning {}
 
+/**
+ * An empty task called by CI. We don't do publications yet.
+ */
+task publish {}
+
 /*
  * Add ktlint tasks.
  */
