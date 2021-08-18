@@ -64,7 +64,7 @@ class BreakoutView(
 
     inner class HolderCallbacks : SurfaceHolder.Callback {
         override fun surfaceChanged(
-            holder: SurfaceHolder?,
+            holder: SurfaceHolder,
             format: Int,
             width: Int,
             height: Int
@@ -78,14 +78,14 @@ class BreakoutView(
             this@BreakoutView.events.add(BreakoutEvent.ScreenSizeChanged(Size(width, height)))
         }
 
-        override fun surfaceDestroyed(holder: SurfaceHolder?) {
+        override fun surfaceDestroyed(holder: SurfaceHolder) {
             this@BreakoutView.logger.debug("surface destroyed")
             this@BreakoutView.done.set(true)
             this@BreakoutView.executor?.shutdown()
             this@BreakoutView.executor = null
         }
 
-        override fun surfaceCreated(holder: SurfaceHolder?) {
+        override fun surfaceCreated(holder: SurfaceHolder) {
             this@BreakoutView.logger.debug("surface created")
             this@BreakoutView.done.set(false)
             this@BreakoutView.recreateExecutor()
