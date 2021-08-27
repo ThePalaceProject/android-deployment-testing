@@ -15,6 +15,7 @@
 *.jks
 secrets.conf
 ReaderClientCert.sig
+play_store_api_key.json
 
 # Backup files
 *~

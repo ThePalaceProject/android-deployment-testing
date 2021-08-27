@@ -36,3 +36,6 @@ cat ".ci/credentials/APK Signing/keystore.properties" >> "${HOME}/.gradle/gradle
 
 CREDENTIALS_PATH=$(realpath ".ci/credentials") ||
   fatal "could not resolve credentials path"
+
+cp "${CREDENTIALS_PATH}/Certificates/Palace/Android/play_store_api_key.json" "org.thepalaceproject.deploytest.app/play_store_api_key.json" ||
+  fatal "could not copy Play Store key"

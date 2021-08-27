@@ -7,12 +7,12 @@
     android:name="org.thepalaceproject.deploytest.app.BreakoutApplication"
     android:allowBackup="true"
     android:icon="@drawable/tomato128"
-    android:contentDescription="Pudding Destroyer">
+    android:contentDescription="Tomato Destroyer">
 
     <!-- Main entry point for the application. -->
     <activity
       android:name="org.thepalaceproject.deploytest.app.BreakoutActivity"
-      android:contentDescription="Breakout"
+      android:contentDescription="Tomato Destroyer"
       android:screenOrientation="portrait"
       android:exported="true"
       android:label="Tomato Destroyer">
