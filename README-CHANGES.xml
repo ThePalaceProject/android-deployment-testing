@@ -6,9 +6,14 @@
         <c:change date="2021-08-06T00:00:00+00:00" summary="Changed something"/>
       </c:changes>
     </c:release>
-    <c:release date="2021-09-01T09:02:08+00:00" is-open="false" ticket-system="org.thepalaceproject.tickets" version="0.0.2">
+    <c:release date="2021-09-01T00:00:00+00:00" is-open="false" ticket-system="org.thepalaceproject.tickets" version="0.0.2">
       <c:changes>
         <c:change date="2021-09-01T00:00:00+00:00" summary="Bug fixes"/>
+      </c:changes>
+    </c:release>
+    <c:release date="2021-09-02T16:41:50+00:00" is-open="true" ticket-system="org.thepalaceproject.tickets" version="0.0.3">
+      <c:changes>
+        <c:change date="2021-09-02T16:41:50+00:00" summary="Adjust ball fixes when horizontally locked"/>
       </c:changes>
     </c:release>
   </c:releases>
